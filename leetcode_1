@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<int> twoSum(vector<int>& nums, int target){
+    vector<int> arr;
+    for(int i=0;i<nums.size()-1;i++){
+        for(int j=i+1;j<nums.size();j++){
+            if((nums[i]+nums[j])==target){
+                arr.push_back(i);
+                arr.push_back(j);
+            }
+        }
+    }
+    return arr;
+}
+
+int main()
+{
+    vector<int>::iterator out;
+    vector<int> nums;
+    int value;
+    while(cin>>value){
+        if(value!=-1){
+           nums.push_back(value);
+        }else{
+            break;
+        }
+    }
+    vector<int> tar = twoSum(nums,9);
+    for(out=tar.begin();out!=tar.end();out++)
+        cout<<*out<<" ";
+    return 0;
+}
