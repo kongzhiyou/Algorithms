@@ -1,1 +1,31 @@
-
+#include <iostream>
+#include <vector>
+using namespace std;
+int removeElement(vector<int>& nums, int val) {
+    if(nums.size()==0){
+        return 0;
+    }
+    int j = 0;
+    while(j<nums.size()){
+        if(nums[j]==val)
+            nums.erase(nums.begin()+j);
+        else
+            j++;
+    }
+    return nums.size();
+}
+int main()
+{
+    vector<int> nums;
+    int value;
+    while(cin>>value){
+        if(value!=-1){
+            nums.push_back(value);
+        }else{
+            break;
+        }
+    }
+    int target = removeElement(nums,2);
+    cout<<target;
+    return 0;
+}
