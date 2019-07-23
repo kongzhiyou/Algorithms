@@ -1,1 +1,37 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+vector<int> plusOne(vector<int>& digits) {
+    int p = digits.size()-1;
+    //此处必须要加p>=0的判断要不然容易数组越界
+    while(p>=0&&digits[p]==9){
+        digits[p]=0;
+        p--;
+    }
+    if(p>=0){
+        digits[p]++;
+    }
+    else{
+        digits[0] = 1;
+        digits.push_back(0);
+    }
+    return digits;
+}
+int main()
+{
+    int value;
+    vector<int> digits;
+    vector<int>::iterator it;
+    while(cin>>value){
+       if(value!=-1){
+        digits.push_back(value);
+       }
+       else break;
+    }
+    vector<int> target = plusOne(digits);
+    for(it=target.begin();it!=target.end();it++){
+        cout<<*it<<" ";
+    }
+    return 0;
+}
 
